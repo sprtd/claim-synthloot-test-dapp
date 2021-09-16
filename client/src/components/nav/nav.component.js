@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { AccountContext } from '../../contexts/account-context'
-import { NavBarWrapper, NavBarItems, Logo, Hamburger, Underliner } from './nav.style'
+import { AccountContext } from '../../contexts/account-context'
+import { NavBarWrapper, NavBarItems, Logo, Hamburger, ConnectWallet } from './nav.style'
 
 const Navbar = () => {
-  // const { web3Account } = useContext(AccountContext)
+  const { web3Account } = useContext(AccountContext)
   const [toggleNav, setToggleNav] = useState(false)
 
   const handleToggle = () => setToggleNav(prev => !prev)
@@ -23,9 +23,14 @@ const Navbar = () => {
       </Hamburger >
       <NavBarItems toggleNav={ handleToggle }>
         <ul >
-          <li>Profile</li>
-          {/* { web3Account ?  <li>{ web3Account.substring(0, 8) }</li> : <li>Connect Wallet</li> } */}
-         
+          { web3Account ?  
+          <a 
+            href={`https://etherscan.io/address/${web3Account}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >{ `${web3Account.substring(0, 10)}` }</a> : null }
+
+          { !web3Account ? <ConnectWallet>Connect Wallet </ConnectWallet> : null }
         </ul>
       </NavBarItems>
 

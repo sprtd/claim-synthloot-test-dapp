@@ -39,17 +39,6 @@ const NavBarWrapper = styled.nav`
 
 `
 
-const Underliner = styled.span`
-
-  height: 3px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background: #eee;
-  // border-radius: 10px;
-
-    
-`
   
 
 const Logo = styled.h1`
@@ -113,8 +102,10 @@ const Hamburger = styled.a`
 
 const NavBarItems = styled.div`
   ul{
+    padding: 50px;
     display: flex;
     align-items: center;
+    list-style: none;
 
     @media(max-width: 600px) {
       flex-direction: column;
@@ -125,7 +116,9 @@ const NavBarItems = styled.div`
 
     }
       
-    li {
+    a {
+
+      text-decoration: none;
       margin-right: 70px;
       list-style: none;
       font-size: 25px;
@@ -141,6 +134,27 @@ const NavBarItems = styled.div`
 
         width: 100%;
       }
+
+    button {
+      
+      margin-right: 70px;
+      background: red;
+      font-size: 25px;
+      font-weight: light;
+      // color: #eee;
+      color:  #5ac4be;
+      cursor: pointer;
+      transition: 0.3s ease-in;
+      
+      @media (max-width: 600px) {
+        transition: .3s ease-in;
+        text-align: center;
+
+        width: 100%;
+      }
+    }
+
+
 
       @media(max-width: 500px) {
         text-align: center;
@@ -164,5 +178,35 @@ const NavBarItems = styled.div`
 
 `
 
+const ConnectWallet = styled.button`
+  margin-right: 70px;
+  background: transparent;
+  // border: 1px solid #9f5afd;
+  border: 1px solid #d5b8ff;
+  padding: 10px 20px;
+  border-radius: 5px;
 
-export { NavBarWrapper, Logo, NavBarItems, Hamburger, Underliner }
+  font-size: 25px;
+  font-weight: light;
+  color: #eee;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+
+  &:hover {
+    color: #d5b8ff;
+  }
+
+  @media (max-width: 600px) {
+    transition: .3s ease-in;
+    text-align: center;
+
+    width: 100%;
+  }
+
+}
+
+
+`
+
+
+export { NavBarWrapper, Logo, NavBarItems, Hamburger, ConnectWallet } 
